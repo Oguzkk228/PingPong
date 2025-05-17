@@ -44,22 +44,32 @@ class Ball(GameSprite):
             self.Yspeed *= -1
         if self.rect.y <= 0:
             self.Yspeed *= -1
-        if self.rect.x >= 735:
-            self.speed *= -1
-        if self.rect.x <-35:
-            self.speed *= -1
         if self.rect.x >= 700:
-            self.rect.y = 250
-            self.rect.x = 350
-            self.speed = randint(3, 6)
+            Direction = randint(1, 2)
+            if Direction == 1:
+                self.rect.y = 250
+                self.rect.x = 350
+                self.speed = randint(3, 6)
+                self.speed *= -1
+            else:
+                self.rect.y = 250
+                self.rect.x = 350
+                self.speed = randint(3, 6)
             RedMiss += 1
-        if self.rect.x <= 0:
-            self.rect.y = 250
-            self.rect.x = 350
-            self.speed = randint(3, 6)
+        if self.rect.x <= -35:
+            Direction = randint(1, 2)
+            if Direction == 1:
+                self.rect.y = 250
+                self.rect.x = 350
+                self.speed = randint(3, 6)
+                self.speed *= -1
+            else:
+                self.rect.y = 250
+                self.rect.x = 350
+                self.speed = randint(3, 6)
             BlueMiss += 1
-Player1 = Wall1('bluroja.jpg', 20, 100, 5, 10, 10)
-Player2 = Wall2('rojared.jpg', 20, 100, 5, 670, 10)
+Player1 = Wall1('bluroja.jpg', 20, 100, 5, 10, 150)
+Player2 = Wall2('rojared.jpg', 20, 100, 5, 670, 150)
 TheBall = Ball('ball.png', 35, 35, randint(3, 6), randint(1, 3), 250, 350)
 game = True
 clock = time.Clock()
